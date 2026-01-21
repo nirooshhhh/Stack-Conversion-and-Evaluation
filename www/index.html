@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack Visualizer — Conversion & Evaluation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- Conversion Section -->
+  <div class="panel">
+    <div class="section-title">Conversion (Letters / Operators)</div>
+    <div class="row">
+      <div class="left-col">
+        <label>Expression</label>
+        <input id="convExpr" placeholder="e.g. (A+B)*C">
+        <label>Conversion type</label>
+        <select id="convType">
+          <option value="infixToPostfix">Infix → Postfix</option>
+          <option value="infixToPrefix">Infix → Prefix</option>
+          <option value="postfixToInfix">Postfix → Infix</option>
+          <option value="prefixToInfix">Prefix → Infix</option>
+        </select>
+        <div class="controls">
+          <button onclick="prepareConversion()">Prepare Steps</button>
+          <button class="secondary" onclick="resetConversion()">Reset</button>
+        </div>
+        <div class="controls">
+          <button id="playConvBtn" onclick="togglePlayConversion()">Play</button>
+        </div>
+        <div class="step-desc" id="convStepsBox">Conversion steps appear here after "Prepare Steps".</div>
+        <div class="controls">
+          <button onclick="prevConversion()">Previous</button>
+          <button onclick="nextConversion()">Next</button>
+        </div>
+        <div class="small-note">Use letters (A,B,...) for operands in conversion.</div>
+      </div>
+      <div class="right-col">
+        <div class="viz-box">
+          <div style="font-weight:700; margin-bottom:6px;">Conversion Visualization</div>
+          <div class="stack-container" id="stackContainerConv"></div>
+          <div class="output-line" id="outputConv">Output / built expression</div>
+          <div class="step-desc" id="convStepDesc">Step info will appear here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluation Section -->
+  <div class="panel">
+    <div class="section-title">Evaluation (Numbers & Operators)</div>
+    <div class="row">
+      <div class="left-col">
+        <label>Evaluation type</label>
+        <select id="evalType">
+          <option value="postfix">Postfix Evaluation</option>
+          <option value="prefix">Prefix Evaluation</option>
+          <option value="infix">Infix Evaluation</option>
+        </select>
+        <label>Expression</label>
+        <input id="evalExpr" placeholder="e.g. 2 3 + 4 *">
+        <div class="controls">
+          <button onclick="prepareEvaluation()">Prepare Evaluation</button>
+          <button class="secondary" onclick="resetEvaluation()">Reset</button>
+        </div>
+        <div class="controls">
+          <button id="playEvalBtn" onclick="togglePlayEvaluation()">Play</button>
+        </div>
+        <div class="step-desc" id="evalStepsBox">Evaluation steps appear here after "Prepare Evaluation".</div>
+        <div class="controls">
+          <button onclick="prevEvaluation()">Previous</button>
+          <button onclick="nextEvaluation()">Next</button>
+        </div>
+        <div class="small-note">Separate numbers/operators with spaces for prefix/postfix. Infix supports integers and parentheses.</div>
+      </div>
+      <div class="right-col">
+        <div class="viz-box">
+          <div style="font-weight:700; margin-bottom:6px;">Evaluation Visualization</div>
+          <div class="stack-container" id="stackContainerEval"></div>
+          <div class="output-line" id="outputEval">Stack / result</div>
+          <div class="step-desc" id="evalStepDesc">Step info will appear here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
