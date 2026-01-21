@@ -53,7 +53,4 @@ Frontend and backend communicate through structured requests and responses to ge
 * Visualizing algorithm execution
 * Academic mini-projects and lab demonstrations
 
-## 📚 Reference
-
-This project is developed for educational purposes to demonstrate **stack-based expression processing and visualization**.
 
